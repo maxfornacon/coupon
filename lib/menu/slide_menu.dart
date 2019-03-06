@@ -1,4 +1,3 @@
-import 'package:coupon/pages/settings_page.dart';
 import "package:flutter/material.dart";
 
 import 'package:coupon/pages/profile_page.dart';
@@ -33,10 +32,6 @@ class _SlideMenuState extends State<SlideMenu> {
           ),
           Divider(),
           ListTile(
-            onTap: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => SettingsPage()),
-            ),
             leading: Icon(Icons.settings),
             title: const Text("Einstellungen"),
           ),
