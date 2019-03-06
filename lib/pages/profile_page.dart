@@ -8,6 +8,15 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   final formKey = GlobalKey<FormState>();
 
+  final myController = TextEditingController();
+
+  @override
+  void dispose() {
+    // Clean up the controller when the Widget is disposed
+    myController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,17 +32,20 @@ class _ProfilePageState extends State<ProfilePage> {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 TextFormField(
+                  controller: myController,
                   decoration: InputDecoration(
                     labelText: 'Benutzername',
-                    
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.all(10.0),
-                  child: Text(
-                    'Benutzername: ',
-                    style: TextStyle(
-                      fontSize: 20.0,
+                Align(
+                  alignment: FractionalOffset(0.0, 0.0),
+                  child: Padding(
+                    padding: EdgeInsets.all(10.0),
+                    child: Text(
+                      'Benutzername: ${myController.text}',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                      ),
                     ),
                   ),
                 ),
