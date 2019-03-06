@@ -1,5 +1,5 @@
 import 'package:coupon/coupon.dart';
-import 'package:coupon/coupon_view.dart';
+import 'package:coupon/pages/coupon_view.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
