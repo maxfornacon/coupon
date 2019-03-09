@@ -8,12 +8,14 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   final formKey = GlobalKey<FormState>();
 
-  final myController = TextEditingController();
+  final userNameController = TextEditingController();
+  final eMailController = TextEditingController();
 
   @override
   void dispose() {
     // Clean up the controller when the Widget is disposed
-    myController.dispose();
+    eMailController.dispose();
+    userNameController.dispose();
     super.dispose();
   }
 
@@ -31,10 +33,44 @@ class _ProfilePageState extends State<ProfilePage> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
+                // profile image
+                Container(
+                  width: 100.0,
+                  height: 100.0,
+                  decoration: new BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: new DecorationImage(
+                      fit: BoxFit.fill,
+                      image: new NetworkImage(
+                        "https://i.imgur.com/BoN9kdC.png")
+                    )
+                )),
+                // profile input
                 TextFormField(
-                  controller: myController,
+                  controller: userNameController,
+                  keyboardType: TextInputType.text,
                   decoration: InputDecoration(
                     labelText: 'Benutzername',
+                  ),
+                ),
+                TextFormField(
+                  controller: eMailController,
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+                    labelText: 'E-Mail',
+                  ),
+                ),
+                // profile output
+                Align(
+                  alignment: FractionalOffset(0.0, 0.0),
+                  child: Padding(
+                    padding: EdgeInsets.all(10.0),
+                    child: Text(
+                      'Benutzername: ${userNameController.text}',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                      ),
+                    ),
                   ),
                 ),
                 Align(
@@ -42,7 +78,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   child: Padding(
                     padding: EdgeInsets.all(10.0),
                     child: Text(
-                      'Benutzername: ${myController.text}',
+                      'E-Mail: ${eMailController.text}',
                       style: TextStyle(
                         fontSize: 20.0,
                       ),
