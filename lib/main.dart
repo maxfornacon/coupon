@@ -1,4 +1,3 @@
-import 'package:coupon/main_list_item.dart';
 import 'package:coupon/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +10,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demon',
       theme: ThemeData(
-        primaryColor: Colors.blue,
+        primaryColor: Colors.white,
       ),
       home: HomePage(),
     );
