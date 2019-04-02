@@ -1,5 +1,5 @@
 import 'package:coupon/coupon.dart';
-import 'package:coupon/pages/coupon_view.dart';
+import 'package:coupon/pages/coupon_page.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -30,7 +30,7 @@ class MainListItem extends StatelessWidget {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => CouponView(coupon: coupon)),
+            MaterialPageRoute(builder: (context) => CouponPage(coupon: coupon)),
           );
         },
         child: Container(
